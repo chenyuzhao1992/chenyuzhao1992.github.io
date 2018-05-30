@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Recusive12345678910111213141516171819202122232425public int uniquePathsWithObstacles(int[][] map) &amp;#123;	return helper(map, map.length - 1, map[0].length - 1);&amp;#125;private int helper(int[][] map, int">
+    <meta name="description" content="Recusivepublic int uniquePathsWithObstacles(int[][] map) {     return helper(map, map.length - 1, map[0].length - 1); } private int helper(int[][] map, int x, int y) {     if (x == 0) {       for (int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="first-post">
 <meta property="og:url" content="http://yoursite.com/2018/05/29/first-post/index.html">
 <meta property="og:site_name" content="AuZh">
-<meta property="og:description" content="Recusive12345678910111213141516171819202122232425public int uniquePathsWithObstacles(int[][] map) &amp;#123;	return helper(map, map.length - 1, map[0].length - 1);&amp;#125;private int helper(int[][] map, int">
+<meta property="og:description" content="Recusivepublic int uniquePathsWithObstacles(int[][] map) {     return helper(map, map.length - 1, map[0].length - 1); } private int helper(int[][] map, int x, int y) {     if (x == 0) {       for (int">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-05-30T02:45:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="first-post">
-<meta name="twitter:description" content="Recusive12345678910111213141516171819202122232425public int uniquePathsWithObstacles(int[][] map) &amp;#123;	return helper(map, map.length - 1, map[0].length - 1);&amp;#125;private int helper(int[][] map, int">
+<meta name="twitter:description" content="Recusivepublic int uniquePathsWithObstacles(int[][] map) {     return helper(map, map.length - 1, map[0].length - 1); } private int helper(int[][] map, int x, int y) {     if (x == 0) {       for (int">
     
     
         
@@ -132,16 +132,96 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Recusive"><a href="#Recusive" class="headerlink" title="Recusive"></a>Recusive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public int uniquePathsWithObstacles(int[][] map) &#123;</span><br><span class="line">	return helper(map, map.length - 1, map[0].length - 1);</span><br><span class="line">&#125;</span><br><span class="line">private int helper(int[][] map, int x, int y) &#123;</span><br><span class="line">	if (x == 0) &#123;</span><br><span class="line">	  for (int i = 0; i &lt; map[0].length; i++) &#123;</span><br><span class="line">	    if (map[0][i] == 1) &#123;</span><br><span class="line">	      return 0;</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	  return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	if (y == 0) &#123;</span><br><span class="line">	  for (int i = 0; i &lt; map[0].length; i++) &#123;</span><br><span class="line">	    if (map[i][0] == 1) &#123;</span><br><span class="line">	      return 0;</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	  return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	if (map[x][y] == 1) &#123;</span><br><span class="line">	  return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	return helper(map, x - 1, y) + helper(map, x, y - 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><ul>
+    <h2 id="Recusive"><a href="#Recusive" class="headerlink" title="Recusive"></a>Recusive</h2><pre><code>public int uniquePathsWithObstacles(int[][] map) {
+    return helper(map, map.length - 1, map[0].length - 1);
+}
+private int helper(int[][] map, int x, int y) {
+    if (x == 0) {
+      for (int i = 0; i &lt; map[0].length; i++) {
+        if (map[0][i] == 1) {
+          return 0;
+        }
+      }
+      return 1;
+    }
+    if (y == 0) {
+      for (int i = 0; i &lt; map[0].length; i++) {
+        if (map[i][0] == 1) {
+          return 0;
+        }
+      }
+      return 1;
+    }
+    if (map[x][y] == 1) {
+      return 0;
+    }
+    return helper(map, x - 1, y) + helper(map, x, y - 1);
+}
+</code></pre><h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><ul>
 <li>time over limit</li>
 </ul>
-<h2 id="Memoziation"><a href="#Memoziation" class="headerlink" title="Memoziation"></a>Memoziation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public int uniquePathsWithObstacles(int[][] map) &#123;</span><br><span class="line">	if (map == null || map.length == 0 || map[0].length == 0) &#123;</span><br><span class="line">	  return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int m = map.length, n = map[0].length;</span><br><span class="line">	int[][] memo = new int[m][n];</span><br><span class="line">	int i;</span><br><span class="line">	for (i = 0; i &lt; m; i++) &#123;</span><br><span class="line">	  if (map[i][0] == 1) &#123;</span><br><span class="line">	    break;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i == m) &#123;</span><br><span class="line">	  for (i = 0; i &lt; m; i++) &#123;</span><br><span class="line">	    memo[i][0] = 1;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for (i = 0; i &lt; n; i++) &#123;</span><br><span class="line">	  if (map[0][i] == 1) &#123;</span><br><span class="line">	    break;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i == n) &#123;</span><br><span class="line">	  for (i = 0; i &lt; n; i++) &#123;</span><br><span class="line">	    memo[0][i] = 1;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return helper(map, m - 1, n - 1, memo);</span><br><span class="line">&#125;</span><br><span class="line">private int helper(int[][] map, int x, int y, int[][] memo) &#123;</span><br><span class="line">	if (x == 0 || y == 0 || memo[x][y] &gt; 0) &#123;</span><br><span class="line">	  return memo[x][y];</span><br><span class="line">	&#125;</span><br><span class="line">	if (map[x][y] == 1) &#123;</span><br><span class="line">	  return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	memo[x][y] = helper(map, x - 1, y, memo) + helper(map, x, y - 1, memo);</span><br><span class="line">	return memo[x][y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Performance-1"><a href="#Performance-1" class="headerlink" title="Performance"></a>Performance</h3><ul>
+<h2 id="Memoziation"><a href="#Memoziation" class="headerlink" title="Memoziation"></a>Memoziation</h2><pre><code>public int uniquePathsWithObstacles(int[][] map) {
+    if (map == null || map.length == 0 || map[0].length == 0) {
+      return 0;
+    }
+    int m = map.length, n = map[0].length;
+    int[][] memo = new int[m][n];
+    int i;
+    for (i = 0; i &lt; m; i++) {
+      if (map[i][0] == 1) {
+        break;
+      }
+    }
+    if (i == m) {
+      for (i = 0; i &lt; m; i++) {
+        memo[i][0] = 1;
+      }
+    }
+    for (i = 0; i &lt; n; i++) {
+      if (map[0][i] == 1) {
+        break;
+      }
+    }
+    if (i == n) {
+      for (i = 0; i &lt; n; i++) {
+        memo[0][i] = 1;
+      }
+    }
+    return helper(map, m - 1, n - 1, memo);
+}
+private int helper(int[][] map, int x, int y, int[][] memo) {
+    if (x == 0 || y == 0 || memo[x][y] &gt; 0) {
+      return memo[x][y];
+    }
+    if (map[x][y] == 1) {
+      return 0;
+    }
+    memo[x][y] = helper(map, x - 1, y, memo) + helper(map, x, y - 1, memo);
+    return memo[x][y];
+}
+</code></pre><h3 id="Performance-1"><a href="#Performance-1" class="headerlink" title="Performance"></a>Performance</h3><ul>
 <li>time over limit</li>
 </ul>
-<h2 id="Bottom-Up"><a href="#Bottom-Up" class="headerlink" title="Bottom Up"></a>Bottom Up</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public int uniquePathsWithObstacles(int[][] map) &#123;</span><br><span class="line">	if (map == null || map.length == 0 || map[0].length == 0) &#123;</span><br><span class="line">	  return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	int row = map.length, col = map[0].length;</span><br><span class="line">	map[0][0] = map[0][0] == 1 ? 0 : 1;</span><br><span class="line">	for (int i = 1; i &lt; row; i++) &#123;</span><br><span class="line">	  map[i][0] = map[i][0] == 1 ? 0 : map[i - 1][0];</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 1; i &lt; col; i++) &#123;</span><br><span class="line">	  map[0][i] = map[0][i] == 1 ? 0 : map[0][i - 1];</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = 1; i &lt; row; i++) &#123;</span><br><span class="line">	  for (int j = 1; j &lt; col; j++) &#123;</span><br><span class="line">	    map[i][j] = map[i][j] == 1 ? 0 : map[i - 1][j] + map[i][j - 1];</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return map[row-1][col-1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Warnings"><a href="#Warnings" class="headerlink" title="Warnings"></a>Warnings</h3><ul>
+<h2 id="Bottom-Up"><a href="#Bottom-Up" class="headerlink" title="Bottom Up"></a>Bottom Up</h2><pre><code>public int uniquePathsWithObstacles(int[][] map) {
+    if (map == null || map.length == 0 || map[0].length == 0) {
+      return 0;
+    }
+    int row = map.length, col = map[0].length;
+    map[0][0] = map[0][0] == 1 ? 0 : 1;
+    for (int i = 1; i &lt; row; i++) {
+      map[i][0] = map[i][0] == 1 ? 0 : map[i - 1][0];
+    }
+    for (int i = 1; i &lt; col; i++) {
+      map[0][i] = map[0][i] == 1 ? 0 : map[0][i - 1];
+    }
+    for (int i = 1; i &lt; row; i++) {
+      for (int j = 1; j &lt; col; j++) {
+        map[i][j] = map[i][j] == 1 ? 0 : map[i - 1][j] + map[i][j - 1];
+      }
+    }
+    return map[row-1][col-1];
+}
+</code></pre><h3 id="Warnings"><a href="#Warnings" class="headerlink" title="Warnings"></a>Warnings</h3><ul>
 <li>Base case contorl is important for this questions <h3 id="Performance-2"><a href="#Performance-2" class="headerlink" title="Performance"></a>Performance</h3></li>
 <li>time O(n + n + n^2)</li>
 <li>space O(1)<ul>
