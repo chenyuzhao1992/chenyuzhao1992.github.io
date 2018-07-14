@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Hello! I&apos;m **[Austin(Chenyu) Zhao](https://www.linkedin.com/in/austinzhao92/)**, a Nerd **Software Developer** in Toronto, Canada, learning Electrical &amp; Computer Engineering(MEng) at [University of T">
+    <meta name="description" content="l1396-Set Union Union Find time O(n^2) space O(n) running time 2480ms  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960public class Solut">
 <meta property="og:type" content="article">
 <meta property="og:title" content="l1396-set-union">
 <meta property="og:url" content="/2018/07/08/l1396-set-union/index.html">
 <meta property="og:site_name" content="Austin Zhao - Meaningful &amp; Neat Coding">
-<meta property="og:description" content="Hello! I&apos;m **[Austin(Chenyu) Zhao](https://www.linkedin.com/in/austinzhao92/)**, a Nerd **Software Developer** in Toronto, Canada, learning Electrical &amp; Computer Engineering(MEng) at [University of T">
+<meta property="og:description" content="l1396-Set Union Union Find time O(n^2) space O(n) running time 2480ms  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960public class Solut">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-08T04:27:38.000Z">
+<meta property="og:updated_time" content="2018-07-09T01:52:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="l1396-set-union">
-<meta name="twitter:description" content="Hello! I&apos;m **[Austin(Chenyu) Zhao](https://www.linkedin.com/in/austinzhao92/)**, a Nerd **Software Developer** in Toronto, Canada, learning Electrical &amp; Computer Engineering(MEng) at [University of T">
+<meta name="twitter:description" content="l1396-Set Union Union Find time O(n^2) space O(n) running time 2480ms  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960public class Solut">
     
     
         
@@ -74,6 +74,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2018/07/08/868-transpose-matrix/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="/2018/07/07/l898-leftmost-one/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -102,7 +104,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Union-Find"><span class="toc-number">1.</span> <span class="toc-text">Union Find</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -136,7 +138,13 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <p><a href="https://www.lintcode.com/problem/set-union/discuss" target="_blank" rel="noopener">l1396-Set Union</a></p>
+<h2 id="Union-Find"><a href="#Union-Find" class="headerlink" title="Union Find"></a>Union Find</h2><ul>
+<li>time O(n^2)</li>
+<li>space O(n)</li>
+<li>running time 2480ms</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> sets: Initial set list</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span>: The final number of sets</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">setUnion</span><span class="params">(<span class="keyword">int</span>[][] sets)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这是一个“认巴巴”和“拜山头”的故事</span></span><br><span class="line">    <span class="comment">// 故事的开始，各自为战，一共有1001个山头（题目输入的要求）</span></span><br><span class="line">    <span class="keyword">int</span>[] father = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1001</span>];</span><br><span class="line">    <span class="comment">// 小弟呢，一共（可能）100001个（值）</span></span><br><span class="line">    <span class="keyword">int</span>[] index = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100001</span>];</span><br><span class="line">    <span class="comment">// 初始化，一开始都是牛B，自己的山头是自己的大爷</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1000</span>; i++) &#123;</span><br><span class="line">      father[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 小弟，闲散，无人认领</span></span><br><span class="line">    Arrays.fill(index, -<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 遍历，每个山头</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sets.length; i++) &#123;</span><br><span class="line">      <span class="comment">// 遍历，问山头上有哪些小弟（值）</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j : sets[i]) &#123;</span><br><span class="line">        <span class="comment">// 如果不是第一次见到这个小弟，而且他一报爸爸不是现在的山头</span></span><br><span class="line">        <span class="keyword">if</span> (index[j] != -<span class="number">1</span> &amp;&amp; index[j] != i) &#123;</span><br><span class="line">          <span class="comment">// 那么，按规矩，他当前山头的爸爸强制认现在山头的爸爸</span></span><br><span class="line">          merge(father, index[j], i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新和确认当前小弟（最上层）的巴巴</span></span><br><span class="line">        index[j] = find(father, i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sets.length; i++) &#123;</span><br><span class="line">      <span class="comment">// self is self's father</span></span><br><span class="line">      <span class="comment">// 独占山头，自成一家。最后只有能把握自己命运的（自己是自己的大爷），才能占山为王（算独立的set)</span></span><br><span class="line">      <span class="keyword">if</span> (father[i] == i) &#123;</span><br><span class="line">        res++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 一共几家山大王？</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] father, <span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// find a's father untill reaching </span></span><br><span class="line">    <span class="comment">// 找老爹直到找到自成一家的“天王老子”</span></span><br><span class="line">    <span class="keyword">if</span> (father[a] == a) &#123;</span><br><span class="line">      <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    father[a] = find(father, father[a]);</span><br><span class="line">    <span class="keyword">return</span> father[a];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] father, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> fa = find(father, a);</span><br><span class="line">    <span class="keyword">int</span> fb = find(father, b);</span><br><span class="line">    <span class="comment">// a follows b's father </span></span><br><span class="line">    <span class="comment">// 找出各自最上层的人物，a的拜山头给b</span></span><br><span class="line">    father[fa] = fb;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
 </article>
 
@@ -170,7 +178,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Union-Find"><span class="toc-number">1.</span> <span class="toc-text">Union Find</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
